@@ -1,0 +1,13 @@
+.sidebar-menu {
+    padding: 0 !important;
+    height: auto !important;
+}
+
+.footer {
+    height: 100px;
+}
+
+.navbar {
+    height: 60px;
+    opacity: 0.9;
+}
