@@ -18,7 +18,7 @@
             </ul>
         </div>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link text-white" data-toggle="collapse" href="#news-dropdown" aria-expanded="false" aria-controls="news-dropdown">
             <i class="menu-icon mdi mdi-account-group"></i>
             <span class="menu-title">News Management</span>
@@ -34,7 +34,7 @@
             </li>
             </ul>
         </div>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </nav>
