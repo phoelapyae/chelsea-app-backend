@@ -1,5 +1,9 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'); // allow certain headers
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('register', 'Api\AuthController@register');
+Route::post('login', 'Api\AuthController@login');
+
+// Route::group(['middleware' => ['jwt.verify']], function () {
+Route::get('profile', 'Api\UserController@index');
+Route::get('news', 'Api\NewsController@index');
+// });

@@ -1,40 +1,43 @@
 <nav class="col-md-2 d-none d-md-block bg-primary sidebar">
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link text-white" data-toggle="collapse" href="#user-dropdown" aria-expanded="false" aria-controls="user-dropdown">
-            <i class="menu-icon mdi mdi-account-group"></i>
-            <span class="menu-title">User Management</span>
-            <i class="menu-arrow"></i>
+      <!-- User management -->
+      <li class="nav-item {{ active_segment(2, 'users') }}">
+        <a class="nav-link" data-toggle="collapse" href="#user-dropdown" aria-expanded="false" aria-controls="user-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">User Management</span>
+          <i class="menu-arrow"></i>
         </a>
-        <div class="collaps text-white" id="user-dropdown">
-            <ul class="nav flex-column sub-menu">
+        <div class="collapse {{ show_segment(2, 'users') }}" id="user-dropdown">
+          <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('users.index') }}">User Lists</a>
+              <a class="nav-link {{ active_path('users') }} text-white" href="{{ route('users.index') }}">User Lists</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="">Add New User</a>
+              <a class="nav-link {{ active_path('users/create') }} text-white" href="{{ route('users.create') }}">Add New User</a>
             </li>
-            </ul>
+          </ul>
         </div>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link text-white" data-toggle="collapse" href="#news-dropdown" aria-expanded="false" aria-controls="news-dropdown">
-            <i class="menu-icon mdi mdi-account-group"></i>
-            <span class="menu-title">News Management</span>
-            <i class="menu-arrow"></i>
+
+      <!-- News management -->
+      <li class="nav-item {{ active_segment(2, 'news') }}">
+        <a class="nav-link" data-toggle="collapse" href="#news-dropdown" aria-expanded="false" aria-controls="news-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">News Management</span>
+          <i class="menu-arrow"></i>
         </a>
-        <div class="collaps text-white" id="news-dropdown">
-            <ul class="nav flex-column sub-menu">
+        <div class="collapse {{ show_segment(2, 'news') }}" id="news-dropdown">
+          <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('users.index') }}">News Lists</a>
+              <a class="nav-link {{ active_path('news') }} text-white" href="{{ route('contents.index') }}">News Lists</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="">Add a news</a>
+              <a class="nav-link {{ active_path('news/create') }} text-white" href="{{ route('contents.create') }}">Add a new</a>
             </li>
-            </ul>
+          </ul>
         </div>
-      </li> --}}
+      </li>
     </ul>
   </div>
 </nav>

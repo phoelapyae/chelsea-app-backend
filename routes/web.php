@@ -19,10 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
 Route::resource('users', 'Admin\UserController');
+Route::resource('contents', 'Admin\NewsController');
