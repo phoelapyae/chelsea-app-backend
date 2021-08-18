@@ -17,7 +17,7 @@
                 <a href="">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="">News</a>
+                <a href="{{ route('contents.index') }}">News</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>

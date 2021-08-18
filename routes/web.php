@@ -27,3 +27,5 @@ Route::get('/dashboard', function () {
 
 Route::resource('users', 'Admin\UserController');
 Route::resource('contents', 'Admin\NewsController');
+Route::resource('matches', 'Admin\MatchController');
+Route::resource('opponent-clubs', 'Admin\OpponentController');

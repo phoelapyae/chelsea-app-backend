@@ -38,6 +38,45 @@
           </ul>
         </div>
       </li>
+
+      <!-- Opponents management -->
+      <li class="nav-item {{ active_segment(2, 'opponents') }}">
+        <a class="nav-link" data-toggle="collapse" href="#opponents-dropdown" aria-expanded="false" aria-controls="opponents-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Opponents Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'opponents') }}" id="opponents-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('opponents') }} text-white" href="{{ route('opponent-clubs.index') }}">Opponents Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('opponents/create') }} text-white" href="{{ route('opponent-clubs.create') }}">Add opponent</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Matches management -->
+      <li class="nav-item {{ active_segment(2, 'matches') }}">
+        <a class="nav-link" data-toggle="collapse" href="#matches-dropdown" aria-expanded="false" aria-controls="matches-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Matches Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'matches') }}" id="matches-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('matches') }} text-white" href="{{ route('matches.index') }}">Matches lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('matches/create') }} text-white" href="{{ route('matches.create') }}">Add new match</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
     </ul>
   </div>
 </nav>
