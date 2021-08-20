@@ -29,3 +29,4 @@ Route::resource('users', 'Admin\UserController');
 Route::resource('contents', 'Admin\NewsController');
 Route::resource('matches', 'Admin\MatchController');
 Route::resource('opponent-clubs', 'Admin\OpponentController');
+Route::resource('chelsea-teams', 'Admin\TeamController');

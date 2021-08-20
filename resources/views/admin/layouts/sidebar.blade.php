@@ -77,6 +77,25 @@
         </div>
       </li>
 
+      <!-- Teams management -->
+      <li class="nav-item {{ active_segment(2, 'teams') }}">
+        <a class="nav-link" data-toggle="collapse" href="#teams-dropdown" aria-expanded="false" aria-controls="teams-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Teams Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'teams') }}" id="teams-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('teams') }} text-white" href="{{ route('chelsea-teams.index') }}">Teams lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('teams/create') }} text-white" href="{{ route('chelsea-teams.create') }}">Add new team</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
     </ul>
   </div>
 </nav>

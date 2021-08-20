@@ -2,6 +2,9 @@
     padding: 0 !important;
     height: auto !important;
 }
+nav.sidebar {
+    padding: 0;
+}
 
 .footer {
     height: 100px;
@@ -14,4 +17,9 @@
 
 ul > li > a.nav-link {
     width: 210px !important;
+}
+
+a.nav-link.text-white {
+    font-size: 15px;
+    margin-left: 20px;
 }
