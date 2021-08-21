@@ -29,6 +29,8 @@ Route::get('news', 'Api\NewsController@index');
 Route::get('categories', 'Api\NewsController@getCategories');
 Route::get('matches', 'Api\MatchController@getMatches');
 Route::get('teams', 'Api\TeamController@getTeams');
+Route::get('team-types', 'Api\TeamController@teamTypes');
+Route::get('work-types', 'Api\TeamController@workTypes');
 
 // Route::group(['middleware' => ['jwt.verify']], function () {
 
