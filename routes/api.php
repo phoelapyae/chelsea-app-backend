@@ -27,6 +27,7 @@ Route::post('login', 'Api\AuthController@login');
 Route::get('profile', 'Api\UserController@index');
 Route::get('news', 'Api\NewsController@index');
 Route::get('categories', 'Api\NewsController@getCategories');
+Route::get('match-types', 'Api\MatchController@getMatchTypes');
 Route::get('matches', 'Api\MatchController@getMatches');
 Route::get('teams', 'Api\TeamController@getTeams');
 Route::get('team-types', 'Api\TeamController@teamTypes');

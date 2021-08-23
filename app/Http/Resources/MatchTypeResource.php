@@ -3,9 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Carbon\Carbon;
 
-class NewsResource extends JsonResource
+class MatchTypeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,17 +16,9 @@ class NewsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'description' => $this->description,
-            'image' => "http://localhost:8000/news/" . $this->image,
-            'publish_date' => $this->publish_date($this->created_at),
+            'name' => $this->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
-    }
-
-    protected function publish_date($date)
-    {
-        return $date->toFormattedDateString();
     }
 }
