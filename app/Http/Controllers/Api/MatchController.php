@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\FootballMatch;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\LeagueTableResource;
 use App\Http\Resources\MatchResource;
 use App\Http\Resources\MatchTypeResource;
+use App\LeagueTable;
 use App\MatchType;
+use App\News;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -25,7 +28,17 @@ class MatchController extends Controller
 
         $match_types = MatchType::find($match_type_id);
 
-        $matches = $match_types->matches;
+        if ($match_type_id == 1 || $match_type_id == 2) {
+            $matches = $match_types->matches;
+        } else {
+        }
+
         return MatchResource::collection($matches);
+    }
+
+    public function getLeagueTables()
+    {
+        $tables = LeagueTable::get();
+        return LeagueTableResource::collection($tables);
     }
 }

@@ -15,7 +15,7 @@ class AddMatchTypeIdToMatchesTable extends Migration
     {
         Schema::table('matches', function (Blueprint $table) {
             $table->boolean('status')->before('place')->default(0);
-            $table->string('match_type_id')->after('place')->default(1);
+            $table->integer('match_type_id')->after('place')->default(1);
         });
     }
 
