@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PositionResource;
 use App\Http\Resources\TeamResource;
 use App\Http\Resources\TeamTypeResource;
 use App\Http\Resources\WorkTypeResource;
+use App\Position;
 use Illuminate\Http\Request;
 use App\Team;
 use App\TeamType;
@@ -32,5 +34,11 @@ class TeamController extends Controller
     {
         $types = WorkType::get();
         return WorkTypeResource::collection($types);
+    }
+
+    public function getPositions()
+    {
+        $positions = Position::whereBetween('id', [1, 4])->get();
+        return PositionResource::collection($positions);
     }
 }

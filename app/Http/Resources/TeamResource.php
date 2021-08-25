@@ -17,7 +17,7 @@ class TeamResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'avater' => public_path() . "/players/" . $this->avatar,
+            'avater' => "http://localhost:8000/teams/" . $this->avatar,
             'number' => $this->number,
             'date_of_birth' => $this->date_of_birth,
             'birthplace' => $this->birthplace,

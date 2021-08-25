@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\News;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LeagueTableResource extends JsonResource
@@ -24,9 +25,16 @@ class LeagueTableResource extends JsonResource
             'GA' => $this->GA,
             'GD' => $this->GD,
             'pts' => $this->pts,
-            'opponent' => $this->opponent,
+            'opponent' => new OpponentResource($this->opponent),
+            'latest_news' => $this->getLatestNews(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
+    }
+
+    public function getLatestNews()
+    {
+        $news = News::take(4)->latest()->get();
+        return NewsResource::collection($news);
     }
 }

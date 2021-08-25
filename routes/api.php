@@ -34,6 +34,7 @@ Route::get('league-table', 'Api\MatchController@getLeagueTables');
 Route::get('teams', 'Api\TeamController@getTeams');
 Route::get('team-types', 'Api\TeamController@teamTypes');
 Route::get('work-types', 'Api\TeamController@workTypes');
+Route::get('positions', 'Api\TeamController@getPositions');
 
 // Route::group(['middleware' => ['jwt.verify']], function () {
 
