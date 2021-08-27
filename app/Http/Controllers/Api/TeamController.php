@@ -21,7 +21,19 @@ class TeamController extends Controller
 
         $work_type_id = $request->has('work_type_id') ? $request->query('work_type_id') : 1;
         $teams = Team::where('team_type_id', $team_type_id)->where('work_type_id', $work_type_id)->get();
-        return TeamResource::collection($teams);
+
+        $position_ids = collect($teams)->map(function ($team) {
+            return $team->position->id;
+        });
+        $position_ids->unique()->values()->all();
+        $positions = Position::whereIn('id', $position_ids)->get();
+
+        $data = [
+            'teams' => TeamResource::collection($teams),
+            'positions' => PositionResource::collection($positions)
+        ];
+
+        return response()->json(['data' => $data], 200);
     }
 
     public function teamTypes()
@@ -38,7 +50,7 @@ class TeamController extends Controller
 
     public function getPositions()
     {
-        $positions = Position::whereBetween('id', [1, 4])->get();
+        $positions = Position::get();
         return PositionResource::collection($positions);
     }
 }
