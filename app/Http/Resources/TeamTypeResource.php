@@ -17,9 +17,14 @@ class TeamTypeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'active' => false,
+            'active' => $this->setActive($this->id),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
+    }
+
+    public function setActive($id)
+    {
+        return $id === 1 ? true : false;
     }
 }

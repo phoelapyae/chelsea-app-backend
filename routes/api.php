@@ -25,13 +25,19 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 Route::get('profile', 'Api\UserController@index');
+
+// News routes
 Route::get('news', 'Api\NewsController@index');
+Route::get('news-detail', 'Api\NewsController@getNewsDetail');
+
 Route::get('categories', 'Api\NewsController@getCategories');
 Route::get('match-types', 'Api\MatchController@getMatchTypes');
 Route::get('matches', 'Api\MatchController@getMatches');
 Route::get('league-table', 'Api\MatchController@getLeagueTables');
 
+// Teams routes
 Route::get('teams', 'Api\TeamController@getTeams');
+Route::get('team-detail', 'Api\TeamController@getTeamDetail');
 Route::get('team-types', 'Api\TeamController@teamTypes');
 Route::get('work-types', 'Api\TeamController@workTypes');
 Route::get('positions', 'Api\TeamController@getPositions');

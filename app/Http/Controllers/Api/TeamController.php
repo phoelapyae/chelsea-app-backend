@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PositionResource;
+use App\Http\Resources\TeamDetailResource;
 use App\Http\Resources\TeamResource;
 use App\Http\Resources\TeamTypeResource;
 use App\Http\Resources\WorkTypeResource;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\TeamType;
 use App\WorkType;
+use Aws\Result;
 
 class TeamController extends Controller
 {
@@ -34,6 +36,17 @@ class TeamController extends Controller
         ];
 
         return response()->json(['data' => $data], 200);
+    }
+
+    public function getTeamDetail(Request $request)
+    {
+        $id = $request->has('id') ? $request->query('id') : 1;
+        $team = Team::find($id);
+        if ($team) {
+            return new TeamDetailResource($team);
+        } else {
+            return response()->json(['message' => 'There is no data for this page.'], 422);
+        }
     }
 
     public function teamTypes()
