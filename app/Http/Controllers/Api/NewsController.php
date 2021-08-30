@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Category;
+use App\FootballMatch;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\NewDetailResource;
 use App\Http\Resources\NewsResource;
+use App\LeagueTable;
 use App\News;
 use Illuminate\Http\Request;
 
@@ -35,5 +37,28 @@ class NewsController extends Controller
     {
         $news = Category::get();
         return CategoryResource::collection($news);
+    }
+
+    public function latestShow()
+    {
+        $news = News::take(5)->get();
+        $latest_news = News::where('category_id', 1)->take(3)->get();
+        $last_match = FootballMatch::where('match_type_id', 2)->latest()->first();
+        $next_match = FootballMatch::where('match_type_id', 1)->latest()->first();
+        $league_tables = LeagueTable::take(3)->get();
+
+        $data = [
+            'news' => $news,
+            'latest_news' => $latest_news,
+            'last_match' => $last_match,
+            'next_match' => $next_match,
+            'league_tables' => $league_tables
+        ];
+
+        if ($data) {
+            return response()->json(['data' => $data], 200);
+        } else {
+            return response()->json(['message' => 'There is no data for this page!'], 422);
+        }
     }
 }

@@ -17,7 +17,8 @@ class TeamDetailResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'avater' => "http://localhost:8000/teams/" . $this->avatar,
+            'avatar' => "http://localhost:8000/teams/" . $this->avatar,
+            'background_avatar' => "http://localhost:8000/teams/" . $this->background_avatar,
             'number' => $this->number,
             'date_of_birth' => $this->date_of_birth,
             'birthplace' => $this->birthplace,

@@ -26,6 +26,9 @@ Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 Route::get('profile', 'Api\UserController@index');
 
+// home routes
+Route::get('latest-show', 'Api\NewsController@latestShow');
+
 // News routes
 Route::get('news', 'Api\NewsController@index');
 Route::get('news-detail', 'Api\NewsController@getNewsDetail');
@@ -37,7 +40,7 @@ Route::get('league-table', 'Api\MatchController@getLeagueTables');
 
 // Teams routes
 Route::get('teams', 'Api\TeamController@getTeams');
-Route::get('team-detail', 'Api\TeamController@getTeamDetail');
+Route::get('teams/team-detail', 'Api\TeamController@getTeamDetail');
 Route::get('team-types', 'Api\TeamController@teamTypes');
 Route::get('work-types', 'Api\TeamController@workTypes');
 Route::get('positions', 'Api\TeamController@getPositions');
