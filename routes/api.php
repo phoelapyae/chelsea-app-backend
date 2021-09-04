@@ -45,6 +45,10 @@ Route::get('team-types', 'Api\TeamController@teamTypes');
 Route::get('work-types', 'Api\TeamController@workTypes');
 Route::get('positions', 'Api\TeamController@getPositions');
 
+// Ticket infos routes
+Route::get('ticket-infos', 'Api\TicketInfoController@getTicketInfos');
+Route::get('ticket-types', 'Api\TicketInfoController@getTicketTypes');
+
 // Route::group(['middleware' => ['jwt.verify']], function () {
 
 // });

@@ -96,6 +96,44 @@
         </div>
       </li>
 
+      <!-- Ticket Infos management -->
+      <li class="nav-item {{ active_segment(2, 'chelsea-ticket-infos') }}">
+        <a class="nav-link" data-toggle="collapse" href="#chelsea-ticket-infos-dropdown" aria-expanded="false" aria-controls="chelsea-ticket-infos-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Ticket Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'chelsea-ticket-infos') }}" id="chelsea-ticket-infos-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('chelsea-ticket-infos') }} text-white" href="{{ route('chelsea-ticket-infos.index') }}">Ticket Info lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('chelsea-ticket-infos/create') }} text-white" href="{{ route('chelsea-ticket-infos.create') }}">Add new ticket info</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Ticket Infos management -->
+      <li class="nav-item {{ active_segment(2, 'match-day-packages') }}">
+        <a class="nav-link" data-toggle="collapse" href="#match-day-packages-dropdown" aria-expanded="false" aria-controls="match-day-packages-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Matchday Packages Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'match-day-packages') }}" id="match-day-packages-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('match-day-packages') }} text-white" href="{{ route('match-day-packages.index') }}">Matchday Packages lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('match-day-packages/create') }} text-white" href="{{ route('match-day-packages.create') }}">New matchday package</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
     </ul>
   </div>
 </nav>

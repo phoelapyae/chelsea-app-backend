@@ -6,6 +6,8 @@ use App\Category;
 use App\FootballMatch;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\LeagueTableResource;
+use App\Http\Resources\MatchResource;
 use App\Http\Resources\NewDetailResource;
 use App\Http\Resources\NewsResource;
 use App\LeagueTable;
@@ -48,11 +50,11 @@ class NewsController extends Controller
         $league_tables = LeagueTable::take(3)->get();
 
         $data = [
-            'news' => $news,
-            'latest_news' => $latest_news,
-            'last_match' => $last_match,
-            'next_match' => $next_match,
-            'league_tables' => $league_tables
+            'news' => NewsResource::collection($news),
+            'latest_news' => NewsResource::collection($latest_news),
+            'last_match' => new MatchResource($last_match),
+            'next_match' => new MatchResource($next_match),
+            'league_tables' => LeagueTableResource::collection($league_tables)
         ];
 
         if ($data) {
