@@ -29,13 +29,20 @@
                 <thead>
                   <tr class="bg-primary text-white">
                     <th>#</th>
-                    <th>Title</th>
+                    <th>Name</th>
                     <th>Short Description</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  @foreach ($packages as $index => $package)
+                    <tr>
+                      <td>{{ $index + 1 }}</td>
+                      <td>{{ $package->name }}</td>
+                      <td>{{ $package->short_description }}</td>
+                      <td></td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>

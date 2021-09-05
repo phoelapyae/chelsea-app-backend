@@ -9,7 +9,7 @@
 
 @section('container')
 <div class="d-flex align-items-center justify-content-between">
-    <h4 class="card-title">Add Ticket Info</h4>
+    <h4 class="card-title">Add New Matchday Package</h4>
 
     <nav aria-label="breadcrumb" class="mb-1">
         <ol class="breadcrumb">
@@ -17,7 +17,7 @@
                 <a href="">Dashboard</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('match-day-packages.index') }}">Ticket Infos</a>
+                <a href="{{ route('match-day-packages.index') }}">Matchday Packages</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
@@ -35,24 +35,31 @@
                     <fieldset>
                         <!-- Cover Image -->
                         <div class="form-group {{ $errors->has('cover_image') ? 'has-error' : '' }} mb-4">
-                            <label for="">Upload Cover Image*</label>
+                            <label for="cover_image">Upload Cover Image*</label>
                             <input type="file" name="cover_image" required class="form-control">
                         </div>
 
                         <!-- Background Image -->
                         <div class="form-group {{ $errors->has('bg_image') ? 'has-error' : '' }} mb-4">
-                            <label for="">Upload Background Image*</label>
+                            <label for="bg_image">Upload Background Image*</label>
                             <input type="file" name="bg_image" required class="form-control">
                         </div>
 
-                        <!-- Information Types -->
-                        {{-- @component('components.selectbox-with-object')
-                        @slot('title', 'Choose Information Type*')
-                        @slot('name', 'ticket_type_id')
-                        @slot('objects', $ticketInfoTypes)
-                        @slot('objectName', 'name')
-                        @slot('selected', '')
-                        @endcomponent --}}
+                        <!-- Package Images -->
+                        <div class="form-group {{ $errors->has('package_images') ? 'has-error' : '' }} mb-4">
+                            <label for="package_images">Upload Package Images*</label>
+                            <input type="file" name="package_images[]" required class="form-control" multiple>
+                        </div>
+
+                        <!-- Choose Match -->
+                        <div class="form-group {{ $errors->has('matches') ? 'has-error' : '' }}">
+                            <label for="matches">Choose Football Matches*</label>
+                            <select name="matches_id[]" id="" class="form-control" multiple>
+                                @foreach ($matches as $match)
+                                    <option value="{{$match->id}}">Chelsea vs {{$match->opponent->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <!-- Name -->
                         @component('components.textbox')
@@ -65,13 +72,26 @@
                         @slot('required', 'required')
                         @endcomponent
 
-                        <!-- Name -->
+                        <!-- Price -->
                         @component('components.textbox')
-                        @slot('title', 'Name*')
+                        @slot('title', 'Price(£)*')
                         @slot('option', '(required)')
-                        @slot('name', 'name')
-                        @slot('placeholder', 'Enter Name')
+                        @slot('name', 'price')
+                        @slot('placeholder', 'Enter Price')
                         @slot('value', '')
+                        @slot('type','number')
+                        @slot('autofocus', 'autofocus')
+                        @slot('required', 'required')
+                        @endcomponent
+
+                        <!-- Limit Count -->
+                        @component('components.textbox')
+                        @slot('title', 'Limit Count*')
+                        @slot('option', '(required)')
+                        @slot('name', 'limit_count')
+                        @slot('placeholder', 'Enter Limit Count')
+                        @slot('value', '')
+                        @slot('type','number')
                         @slot('autofocus', 'autofocus')
                         @slot('required', 'required')
                         @endcomponent
@@ -96,7 +116,7 @@
 
                         <!-- description -->
                         @component('components.textareabox')
-                        @slot('title', 'description*')
+                        @slot('title', 'Description*')
                         @slot('name', 'description')
                         @slot('value', '')
                         @endcomponent
