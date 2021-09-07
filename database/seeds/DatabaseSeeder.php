@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(MatchTypeSeeder::class);
         // $this->call(LeagueTableSeeder::class);
         // $this->call(TicketTypeSeeder::class);
+        // $this->call(ClubCategorySeeder::class);
+        // $this->call(BenefitSeeder::class);
     }
 }

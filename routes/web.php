@@ -32,3 +32,4 @@ Route::resource('opponent-clubs', 'Admin\OpponentController');
 Route::resource('chelsea-teams', 'Admin\TeamController');
 Route::resource('chelsea-ticket-infos', 'Admin\TicketInfoController');
 Route::resource('match-day-packages', 'Admin\MatchDayPackageController');
+Route::resource('ticket-categories', 'Admin\TicketCategoryController');

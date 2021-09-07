@@ -22,8 +22,13 @@ class FootballMatch extends Model
         return $this->belongsTo('App\Competition');
     }
 
-    public function matchDayPackages()
+    public function packages()
     {
         return $this->belongsToMany('App\MatchDayPackage', 'match_day_package_football_matches', 'match_id', 'match_day_package_id');
+    }
+
+    public function ticketCategories()
+    {
+        return $this->belongsToMany('App\TicketCategory', 'match_ticket_categories', 'match_id', 'ticket_category_id');
     }
 }

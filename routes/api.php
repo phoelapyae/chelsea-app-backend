@@ -47,7 +47,13 @@ Route::get('positions', 'Api\TeamController@getPositions');
 
 // Ticket infos routes
 Route::get('ticket-infos', 'Api\TicketInfoController@getTicketInfos');
+Route::get('get-tickets', 'Api\TicketInfoController@getTickets');
 Route::get('ticket-types', 'Api\TicketInfoController@getTicketTypes');
+Route::get('buy-tickets', 'Api\TicketInfoController@buyTickets');
+Route::get('buy-packages', 'Api\TicketInfoController@buyPackages');
+Route::get('club-categories', 'Api\TicketInfoController@getClubCategories');
+
+Route::get('benefits', 'Api\TicketInfoController@getBenefits');
 
 // Route::group(['middleware' => ['jwt.verify']], function () {
 

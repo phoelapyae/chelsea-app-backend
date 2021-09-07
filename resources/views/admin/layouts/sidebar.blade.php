@@ -134,6 +134,25 @@
         </div>
       </li>
 
+      <!-- Ticket category management -->
+      <li class="nav-item {{ active_segment(2, 'ticket-categories') }}">
+        <a class="nav-link" data-toggle="collapse" href="#ticket-categories-dropdown" aria-expanded="false" aria-controls="ticket-categories-dropdown">
+          <i class="menu-icon mdi mdi-account-group"></i>
+          <span class="menu-title text-white">Ticket Categories Management</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse {{ show_segment(2, 'ticket-categories') }}" id="ticket-categories-dropdown">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('ticket-categories') }} text-white" href="{{ route('ticket-categories.index') }}">Ticket Categories lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ active_path('ticket-categories/create') }} text-white" href="{{ route('ticket-categories.create') }}">New ticket category</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
     </ul>
   </div>
 </nav>

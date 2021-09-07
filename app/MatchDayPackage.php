@@ -20,4 +20,9 @@ class MatchDayPackage extends Model
     {
         return $this->belongsToMany('App\FootballMatch', 'match_day_package_football_matches', 'match_day_package_id', 'match_id');
     }
+
+    public function benefits()
+    {
+        return $this->belongsToMany('App\Benefit', 'match_day_package_benefits', 'match_day_package_id', 'benefit_id');
+    }
 }
