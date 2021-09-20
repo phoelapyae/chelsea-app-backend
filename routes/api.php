@@ -49,13 +49,21 @@ Route::get('ticket-infos', 'Api\TicketInfoController@getTicketInfos');
 Route::get('get-tickets', 'Api\TicketInfoController@getTickets');
 Route::get('ticket-types', 'Api\TicketInfoController@getTicketTypes');
 Route::get('buy-tickets', 'Api\TicketInfoController@buyTickets');
-Route::get('buy-packages', 'Api\TicketInfoController@buyPackages');
 Route::get('club-categories', 'Api\TicketInfoController@getClubCategories');
 
-Route::get('benefits', 'Api\TicketInfoController@getBenefits');
+Route::get('buy-packages', 'Api\PackageController@buyPackages');
+Route::get('buy-packages/detail/{id}', 'Api\PackageController@detailPackage');
+Route::get('benefits', 'Api\PackageController@getBenefits');
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('profile', 'Api\UserController@index');
     Route::post('update-profile', 'Api\AuthController@updateProfile');
     Route::post('upload-avatar', 'Api\AuthController@uploadAvatar');
+
+    Route::post('buy-packages/add-to-cart', 'Api\PackageController@addPackageToCart');
+    Route::get('buy-packages/cart-list', 'Api\PackageController@cartList');
+    Route::get('payments', 'Api\PaymentController@getPayments');
+    Route::post('buy-packages/order', 'Api\PackageController@packageOrder');
+    Route::get('buy-packages/order-list', 'Api\PackageController@orderList');
+    Route::post('buy-packages/confirm-order', 'Api\PackageController@confirmOrder');
 });

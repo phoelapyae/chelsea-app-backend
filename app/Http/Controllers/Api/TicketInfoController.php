@@ -55,21 +55,9 @@ class TicketInfoController extends Controller
         return MatchResource::collection($matches);
     }
 
-    public function buyPackages()
-    {
-        $packages = MatchDayPackage::get();
-        return PackageResource::collection($packages);
-    }
-
     public function getClubCategories()
     {
         $categories = ClubCategory::get();
         return ClubCategoryResource::collection($categories);
-    }
-
-    public function getBenefits()
-    {
-        $benefits = Benefit::get();
-        return BenefitResource::collection($benefits);
     }
 }
