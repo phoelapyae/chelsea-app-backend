@@ -25,4 +25,9 @@ class MatchDayPackage extends Model
     {
         return $this->belongsToMany('App\Benefit', 'match_day_package_benefits', 'match_day_package_id', 'benefit_id');
     }
+
+    public function images()
+    {
+        return $this->hasMany('App\MatchdayPackageImage');
+    }
 }

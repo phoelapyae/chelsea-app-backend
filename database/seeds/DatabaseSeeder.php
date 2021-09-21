@@ -1,6 +1,5 @@
 <?php
 
-use App\Position;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,5 +23,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(TicketTypeSeeder::class);
         // $this->call(ClubCategorySeeder::class);
         // $this->call(BenefitSeeder::class);
+        // $this->call(BuyTicketStepSeeder::class);
     }
 }

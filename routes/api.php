@@ -66,4 +66,5 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('buy-packages/order', 'Api\PackageController@packageOrder');
     Route::get('buy-packages/order-list', 'Api\PackageController@orderList');
     Route::post('buy-packages/confirm-order', 'Api\PackageController@confirmOrder');
+    Route::get('buy-packages/steps', 'Api\PackageController@getSteps');
 });

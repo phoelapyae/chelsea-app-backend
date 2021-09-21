@@ -27,6 +27,7 @@ class PackageResource extends JsonResource
             'expanded' => $this->expanded,
             'short_description' => $this->short_description,
             'description' => $this->description,
+            'images' => PackageImageResource::collection($this->images),
             'matches' => $this->latestMatches($this->id),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at

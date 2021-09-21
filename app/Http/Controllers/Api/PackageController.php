@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\MatchDayPackage;
 use App\Benefit;
+use App\BuyTicketStep;
 use App\User;
 use App\Cart;
 use App\Order;
@@ -16,6 +17,7 @@ use App\Transaction;
 
 use App\Http\Resources\PackageResource;
 use App\Http\Resources\BenefitResource;
+use App\Http\Resources\BuyTicketStepResource;
 use App\Http\Resources\CartResource;
 use App\Http\Resources\OrderResource;
 use Psr\Http\Message\ResponseInterface;
@@ -149,5 +151,11 @@ class PackageController extends Controller
             return OrderResource::collection($orders);
         }
         return response()->json(['error' => 'There is no order.'], 422);
+    }
+
+    public function getSteps()
+    {
+        $steps = BuyTicketStep::get();
+        return BuyTicketStepResource::collection($steps);
     }
 }
