@@ -67,18 +67,21 @@ class PackageController extends Controller
             ->first();
 
         if ($cart) {
-            return response()->json(['error' => 'Already exists in your cart!'], 422);
+            $cart->update([
+                'qty' => $cart->qty + $request->qty,
+                'total' => $cart->total + $total
+            ]);
+        } else {
+            $cart = Cart::create([
+                'user_id' => auth()->id(),
+                'package_id' => $package->id,
+                'match_id' => $request->match_id,
+                'qty' => $request->qty,
+                'total' => $total
+            ]);
         }
 
-        $new_cart = Cart::create([
-            'user_id' => auth()->id(),
-            'package_id' => $package->id,
-            'match_id' => $request->match_id,
-            'qty' => $request->qty,
-            'total' => $total
-        ]);
-
-        return new CartResource($new_cart);
+        return new CartResource($cart);
     }
 
     public function cartList()
